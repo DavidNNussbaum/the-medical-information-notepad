@@ -52,7 +52,7 @@ class FamilyHistoriesController < ApplicationController
 
   def destroy
         if @family_history.destroy
-            redirect_to comments_path
+            redirect_to family_histories_path
         else
             redirect_to back
         end
