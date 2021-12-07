@@ -4,11 +4,11 @@ class ImmunizationsController < ApplicationController
     
 
      def index
-      @immunization = FamilyHistory.find_by(id: params[:patient_id])
+      @immunization = Immunization.find_by(id: params[:patient_id])
       if @patient
-        @immunizations = FamilyHistory.where(patient: @patient).order_by_name
+        @immunizations = Immunization.where(patient: @patient).order_by_name
       else
-        @immunizations = FamilyHistory.all
+        @immunizations = Immunization.all
       end
       if params[:search]
         @immunizations = @immunizations.search_by_name(params[:search]).order_by_name
@@ -17,7 +17,7 @@ class ImmunizationsController < ApplicationController
      end
   
     def new
-      @immunization = FamilyHistory.new
+      @immunization = Immunization.new
       @patient = Patient.find_by(id: params[:patient_id])
 
     end
@@ -31,7 +31,7 @@ class ImmunizationsController < ApplicationController
     end
   
     def create
-      @immunization = FamilyHistory.new(immunization_params)
+      @immunization = Immunization.new(immunization_params)
       if @immunization.save
           redirect_to immunizations_path(@immunization.patient)
         else  
@@ -62,7 +62,7 @@ class ImmunizationsController < ApplicationController
 private
 
   def find_immunization
-    @immunization = FamilyHistory.find(params[:id])
+    @immunization = Immunization.find(params[:id])
   end
   
     def immunization_params
