@@ -4,11 +4,11 @@ class SubjectivesController < ApplicationController
     
 
      def index
-      @subjective = Medication.find_by(id: params[:patient_id])
+      @subjective = Subjective.find_by(id: params[:patient_id])
       if @patient
-        @subjectives = Medication.where(patient: @patient).order_by_name
+        @subjectives = Subjective.where(patient: @patient).order_by_name
       else
-        @subjectives = Medication.all
+        @subjectives = Subjective.all
       end
       if params[:search]
         @subjectives = @subjectives.search_by_name(params[:search]).order_by_name
@@ -17,7 +17,7 @@ class SubjectivesController < ApplicationController
      end
   
     def new
-      @subjective = Medication.new
+      @subjective = Subjective.new
       @patient = Patient.find_by(id: params[:patient_id])
 
     end
@@ -31,7 +31,7 @@ class SubjectivesController < ApplicationController
     end
   
     def create
-      @subjective = Medication.new(subjective_params)
+      @subjective = Subjective.new(subjective_params)
       if @subjective.save
           redirect_to subjectives_path(@subjective.patient)
         else  
@@ -62,7 +62,7 @@ class SubjectivesController < ApplicationController
 private
 
   def find_medication
-    @subjective = Medication.find(params[:id])
+    @subjective = Subjective.find(params[:id])
   end
   
     def subjective_params
