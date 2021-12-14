@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     
 
      def index
-      @comment = Comment.find_by(id: params[:patient_id])
-      if @patient
-        @comments = Comment.where(patient: @patient).order_by_name
+      @comment = Comment.find_by(id: params[:user_id])
+      if @user
+        @comments = Comment.where(user: @user).order_by_name
       else
         @comments = Comment.all
       end
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   
     def new
       @comment = Comment.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   
@@ -68,7 +68,7 @@ private
     def comment_params
       params.require(:comment).permit(
         :description,
-        :patient_id
+        :user_id
       )
   
     end
