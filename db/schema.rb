@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_194328) do
+ActiveRecord::Schema.define(version: 2021_12_14_174430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,16 +55,6 @@ ActiveRecord::Schema.define(version: 2021_12_05_194328) do
     t.index ["patient_id"], name: "index_medications_on_patient_id"
   end
 
-  create_table "patients", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "password_digest", null: false
-    t.json "diagnoses", null: false
-    t.string "allergies", null: false
-    t.string "current_treatments", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "subjectives", force: :cascade do |t|
     t.text "description"
     t.integer "scale"
@@ -86,10 +76,20 @@ ActiveRecord::Schema.define(version: 2021_12_05_194328) do
     t.index ["patient_id"], name: "index_surgeries_on_patient_id"
   end
 
-  add_foreign_key "comments", "patients"
-  add_foreign_key "family_histories", "patients"
-  add_foreign_key "immunizations", "patients"
-  add_foreign_key "medications", "patients"
-  add_foreign_key "subjectives", "patients"
-  add_foreign_key "surgeries", "patients"
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.json "diagnoses", null: false
+    t.string "allergies", null: false
+    t.string "current_treatments", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comments", "users", column: "patient_id"
+  add_foreign_key "family_histories", "users", column: "patient_id"
+  add_foreign_key "immunizations", "users", column: "patient_id"
+  add_foreign_key "medications", "users", column: "patient_id"
+  add_foreign_key "subjectives", "users", column: "patient_id"
+  add_foreign_key "surgeries", "users", column: "patient_id"
 end
