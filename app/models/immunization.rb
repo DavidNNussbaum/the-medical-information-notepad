@@ -1,3 +1,3 @@
 class Immunization < ApplicationRecord
-  belongs_to :patient
+  belongs_to :user
 end
