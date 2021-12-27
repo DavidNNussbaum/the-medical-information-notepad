@@ -5,8 +5,8 @@ class MedicationsController < ApplicationController
 
      def index
       @medication = Medication.find_by(id: params[:patient_id])
-      if @patient
-        @medications = Medication.where(patient: @patient).order_by_name
+      if @user
+        @medications = Medication.where(user: @user).order_by_name
       else
         @medications = Medication.all
       end
@@ -18,7 +18,7 @@ class MedicationsController < ApplicationController
   
     def new
       @medication = Medication.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   
@@ -33,7 +33,7 @@ class MedicationsController < ApplicationController
     def create
       @medication = Medication.new(medication_params)
       if @medication.save
-          redirect_to medications_path(@medication.patient)
+          redirect_to medications_path(@medication.user)
         else  
             flash[:danger] = 'This Medication Is Already In Our System'
             render 'sessions/homepage'
@@ -71,7 +71,7 @@ private
         :strength,
         :route,
         :frequency,
-        :patient_id
+        :user_id
       )
   
     end
