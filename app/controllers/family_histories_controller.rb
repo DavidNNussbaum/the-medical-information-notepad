@@ -18,7 +18,7 @@ class FamilyHistoriesController < ApplicationController
   
     def new
       @family_history = FamilyHistory.new
-      @user = Patient.find_by(id: params[:user_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   

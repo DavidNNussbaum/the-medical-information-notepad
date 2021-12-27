@@ -4,9 +4,9 @@ class ImmunizationsController < ApplicationController
     
 
      def index
-      @immunization = Immunization.find_by(id: params[:patient_id])
-      if @patient
-        @immunizations = Immunization.where(patient: @patient).order_by_name
+      @immunization = Immunization.find_by(id: params[:user_id])
+      if @user
+        @immunizations = Immunization.where(user: @user).order_by_name
       else
         @immunizations = Immunization.all
       end
@@ -18,7 +18,7 @@ class ImmunizationsController < ApplicationController
   
     def new
       @immunization = Immunization.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   
@@ -33,7 +33,7 @@ class ImmunizationsController < ApplicationController
     def create
       @immunization = Immunization.new(immunization_params)
       if @immunization.save
-          redirect_to immunizations_path(@immunization.patient)
+          redirect_to immunizations_path(@immunization.user)
         else  
             flash[:danger] = 'This Immunization Is Already In Our System'
             render 'sessions/homepage'
@@ -69,7 +69,7 @@ private
       params.require(:immunization).permit(
         :name,
         :date,
-        :patient_id
+        :user_id
       )
   
     end
