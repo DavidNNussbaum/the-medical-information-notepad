@@ -4,9 +4,9 @@ class FamilyHistoriesController < ApplicationController
     
 
      def index
-      @family_history = FamilyHistory.find_by(id: params[:patient_id])
-      if @patient
-        @family_histories = FamilyHistory.where(patient: @patient).order_by_name
+      @family_history = FamilyHistory.find_by(id: params[:user_id])
+      if @user
+        @family_histories = FamilyHistory.where(user: @user).order_by_name
       else
         @family_histories = FamilyHistory.all
       end
@@ -18,7 +18,7 @@ class FamilyHistoriesController < ApplicationController
   
     def new
       @family_history = FamilyHistory.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = Patient.find_by(id: params[:user_id])
 
     end
   
@@ -33,7 +33,7 @@ class FamilyHistoriesController < ApplicationController
     def create
       @family_history = FamilyHistory.new(family_history_params)
       if @family_history.save
-          redirect_to patient_family_histories_path(@family_history.patient)
+          redirect_to patient_family_histories_path(@family_history.user)
         else  
             flash[:danger] = 'This Family History Is Already In Our System'
             render 'sessions/homepage'
@@ -72,7 +72,7 @@ private
         :father,
         :sister,
         :brother,
-        :patient_id
+        :user_id
       )
   
     end
