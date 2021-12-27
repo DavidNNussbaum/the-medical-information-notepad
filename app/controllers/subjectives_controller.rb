@@ -4,9 +4,9 @@ class SubjectivesController < ApplicationController
     
 
      def index
-      @subjective = Subjective.find_by(id: params[:patient_id])
-      if @patient
-        @subjectives = Subjective.where(patient: @patient).order_by_name
+      @subjective = Subjective.find_by(id: params[:user_id])
+      if @user
+        @subjectives = Subjective.where(user: @user).order_by_name
       else
         @subjectives = Subjective.all
       end
@@ -18,7 +18,7 @@ class SubjectivesController < ApplicationController
   
     def new
       @subjective = Subjective.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   
@@ -72,7 +72,7 @@ private
         :location,
         :observed_changes,
         :start_date,
-        :patient_id
+        :user_id
       )
   
     end
