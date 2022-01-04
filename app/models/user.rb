@@ -1,4 +1,4 @@
-class Patient < ApplicationRecord
+class User < ApplicationRecord
     has_many :surgeries_and_immunizations
     has_many :medications
     has_many :family_histories
