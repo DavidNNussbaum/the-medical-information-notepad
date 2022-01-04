@@ -4,9 +4,9 @@ class SurgeriesController < ApplicationController
     
 
      def index
-      @surgery = Surgery.find_by(id: params[:patient_id])
+      @surgery = Surgery.find_by(id: params[:user_id])
       if @patient
-        @surgeries = Surgery.where(patient: @patient).order_by_name
+        @surgeries = Surgery.where(user: @user).order_by_name
       else
         @surgeries = Surgery.all
       end
@@ -18,7 +18,7 @@ class SurgeriesController < ApplicationController
   
     def new
       @surgery = Surgery.new
-      @patient = Patient.find_by(id: params[:patient_id])
+      @user = User.find_by(id: params[:user_id])
 
     end
   
@@ -33,7 +33,7 @@ class SurgeriesController < ApplicationController
     def create
       @surgery = Surgery.new(surgery_params)
       if @surgery.save
-          redirect_to surgeries_path(@surgery.patient)
+          redirect_to surgeries_path(@surgery.user)
         else  
             flash[:danger] = 'This Surgery Is Already In Our System'
             render 'sessions/homepage'
@@ -69,7 +69,7 @@ private
       params.require(:surgery).permit(
         :name,
         :date,
-        :patient_id
+        :user_id
       )
   
     end
