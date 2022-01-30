@@ -1,0 +1,24 @@
+<%= form_for(@family_history) do |f| %>
+
+  <label>Diagnosis:</label><br>
+  <%= f.text_field :diagnosis %><br>
+  
+  <label>Mother:</label><br>
+  <%= f.text_field :mother %><br>
+
+  <label>Father:</label><br>
+  <%= f.text_field :father %><br>
+
+  <label>Sister:</label><br>
+  <%= f.text_field :dob, value: @patient.dob&.strftime("%m/%d/%Y") %><br>
+
+  <label>Brother:</label><br>
+  <%= f.text_field :address %><br>
+
+  
+   <br>
+  <%= f.submit "Submit This Information"%>
+<% end %>
+</form>
+
+  
