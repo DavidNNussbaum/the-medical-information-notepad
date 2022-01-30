@@ -1,0 +1,21 @@
+<%= form_for(@medication) do |f| %>
+
+  <label>Medication Name:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Medication Strength:</label><br>
+  <%= f.text_field :strength %><br>
+
+  <label>Medication Route:</label><br>
+  <%= f.text_field :route %><br>
+
+  <label>Medication Frequency:</label><br>
+  <%= f.text_field :frequency %><br>
+   
+   <br>
+  <%= f.submit "Submit This Information"%>
+<% end %>
+</form>
+
+ 
+ 
