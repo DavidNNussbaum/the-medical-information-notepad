@@ -1,0 +1,22 @@
+<%= form_for(@subjective) do |f| %>
+
+  <label>Description Of The Situation:</label><br>
+  <%= f.text_field :description %><br>
+
+  <label>Level Of Discomfort Or Pain On A Scale Of 1 - 10:</label><br>
+  <%= f.integer :scale %><br>
+
+  <label>Location Of The Problem:</label><br>
+  <%= f.text_field :location %><br>
+
+  <label>Changes That Have Been Observed:</label><br>
+  <%= f.text_field :observed_changes %><br>
+
+  <label>The Date When The Problem Started:</label><br>
+  <%= f.datetime :start_date %><br>
+   
+
+   <br>
+  <%= f.submit "Submit This Information"%>
+<% end %>
+</form>
