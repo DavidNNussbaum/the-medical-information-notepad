@@ -1,0 +1,14 @@
+<%= form_for(@surgery) do |f| %>
+
+  <label>Name of Surgery:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Patient Date Of Birth (mm/dd/yyyy):</label><br>
+  <%= f.datetime :date %><br>
+
+   <br>
+  <%= f.submit "Submit This Information"%>
+<% end %>
+</form>
+
+ 
