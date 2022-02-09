@@ -1,0 +1,23 @@
+ <div class="ft-sz-25">
+
+  <%= form_with(url: comments_path, method: :get) do |f| %>
+      <%= f.label :search, "Search comments by description" %>
+      <%= f.text_field :search, value: params[:search] %>
+      <%= f.submit "Search" %>
+  <% end %>
+  
+  <% if @comments.exists? %>
+    <div>
+      <% @comments.each do |comment| %>
+        <div>
+          <%= link_to comment.description, comment_path(comment) %> 
+          <%= comment.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %>
+          
+        </div> 
+        
+      <% end %>
+    </div>
+  <% else %>
+    <p>This comment Is Not In Our System.</p>
+  <% end %>
+</div>
