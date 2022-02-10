@@ -1,0 +1,24 @@
+ <div class="ft-sz-25">
+
+  <%= form_with(url: immunizations_path, method: :get) do |f| %>
+      <%= f.label :search, "Search immunizations by name" %>
+      <%= f.text_field :search, value: params[:search] %>
+      <%= f.submit "Search" %>
+  <% end %>
+  
+  <% if @immunizations.exists? %>
+    <div>
+      <% @immunizations.each do |immunization| %>
+        <div>
+          <%= link_to immunization.name, immunization_path(immunization) %> 
+          <%= patient.date.strftime("%m/%d/%Y") %>
+          <%= patient.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %>
+          
+        </div> 
+        
+      <% end %>
+    </div>
+  <% else %>
+    <p>This Immunization Is Not In Our System.</p>
+  <% end %>
+</div>
