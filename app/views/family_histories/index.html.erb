@@ -1,0 +1,29 @@
+ <div class="ft-sz-25">
+
+  <%= form_with(url: family_histories_path, method: :get) do |f| %>
+      <%= f.label :search, "Search family histories by name" %>
+      <%= f.text_field :search, value: params[:search] %>
+      <%= f.submit "Search" %>
+  <% end %>
+  
+  <% if @family_histories.exists? %>
+    <div>
+      <% @family_histories.each do |family_history| %>
+        <div>
+          <%= link_to family_history.mother, family_history_path(family_history) %> 
+          <%= link_to family_history.father, family_history_path(family_history) %>
+          <%= link_to family_history.sister, family_history_path(family_history) %>
+          <%= link_to family_history.brother, family_history_path(family_history) %>
+          <%= link_to family_history.diagnosis, family_history_path(family_history) %> 
+          <%= family_history.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %>
+          
+        </div> 
+        
+      <% end %>
+    </div>
+  <% else %>
+    <p>This Family History Is Not In Our System.</p>
+  <% end %>
+</div>
+
+ 
