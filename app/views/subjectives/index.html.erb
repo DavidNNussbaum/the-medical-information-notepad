@@ -1,0 +1,20 @@
+<div class="ft-sz-25">
+  <% @subjectives.each do |subjective| %>
+    <p>Description Of The Problem: <% subjective.description %></p><br>
+    <p>Severity On A Scale Of 1-10: <%= subjective.scale %></p><br>
+    <p>Location Of The Problem: <%= subjective.location %></p><br>
+    <p>Changes That Were Seen: <%= subjective.observed_changes %></p><br>
+    <p>When This Problem Started: <%= subjective.start_date %></p><br>
+    <p><%= subjective.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p><br>
+    <p><%= link_to 'Go To This Subjective' , subjective_path(subjective) %>
+      
+      <br>   
+    
+  <% end %>
+</div>
+
+  
+    
+     
+   
+
