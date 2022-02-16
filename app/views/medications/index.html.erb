@@ -1,0 +1,20 @@
+<div class="ft-sz-25">
+  <% @medications.each do |medication| %>
+    <p>Medication Name: <%= medication.name %></p><br>
+    <p>Medication Strength: <%= medication.strength%></p><br>
+    <p>Medication Route: <%= medication.route %></p><br>
+    <p>Medication Frequency: <%= medication.frequency %></p><br>
+    <p><%= medication.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p><br>
+    <p><%= link_to 'Go To This Medication' , medication_path(medication) %>
+      <br>   
+    
+  <% end %>
+</div>
+
+
+
+
+
+
+
+  
