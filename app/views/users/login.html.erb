@@ -1,0 +1,16 @@
+<div class="ft-sz-25">
+    <div id="login-form">
+    <%= form_with(model: @user, url: users_path, method: :post, local: true) do |f| %>
+        <div class="">
+            <%= f.label :username, class: "form-label" %><br>
+            <%= f.text_field :username, class: "form-input" %>
+        </div>
+        <div class="">
+            <%= f.label :password, class: "form-label" %><br>
+            <%= f.password_field :password, class: "form-input" %>
+        </div>
+       
+        <%= f.submit :login %>
+    <% end %>
+ </div>
+<div>
