@@ -1,0 +1,13 @@
+<div class="ft-sz-25">
+  <% @surgeries.each do |surgery| %>
+    <p>Type Of Surgery: <%= surgery.description %></p><br>
+    <p>Date Of Surgery: <%= surgery.date %></p><br>
+    <p><%= surgery.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p><br>
+    <p><%= link_to 'Go To This Surgery' , surgery_path(surgery) %>
+      
+      <br>   
+    
+  <% end %>
+</div>
+
+  

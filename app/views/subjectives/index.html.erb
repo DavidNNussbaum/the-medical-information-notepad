@@ -1,6 +1,6 @@
 <div class="ft-sz-25">
   <% @subjectives.each do |subjective| %>
-    <p>Description Of The Problem: <% subjective.description %></p><br>
+    <p>Description Of The Problem: <%= subjective.description %></p><br>
     <p>Severity On A Scale Of 1-10: <%= subjective.scale %></p><br>
     <p>Location Of The Problem: <%= subjective.location %></p><br>
     <p>Changes That Were Seen: <%= subjective.observed_changes %></p><br>
