@@ -4,16 +4,16 @@
   <%= f.text_field :diagnosis %><br>
   
   <label>Mother:</label><br>
-  <%= f.text_field :mother %><br>
+  <%= f.boolean :mother %><br>
 
   <label>Father:</label><br>
-  <%= f.text_field :father %><br>
+  <%= f.boolean :father %><br>
 
   <label>Sister:</label><br>
-  <%= f.text_field :dob, value: @patient.dob&.strftime("%m/%d/%Y") %><br>
+  <%= f.boolean :sister %><br>
 
   <label>Brother:</label><br>
-  <%= f.text_field :address %><br>
+  <%= f.boolean :brother %><br>
 
   
    <br>
