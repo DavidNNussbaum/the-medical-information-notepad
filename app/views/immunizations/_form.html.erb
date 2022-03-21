@@ -1,10 +1,10 @@
 <%= form_for(@immunization) do |f| %>
 
+ <label>Date: </label><br>
+  <%= f.datetime :date %><br>
+ 
   <label>Name:</label><br>
   <%= f.text_field :name %><br>
-
-  <label>Date: </label><br>
-  <%= f.datetime :date %><br>
   
    <br>
   <%= f.submit "Submit This Information"%>
