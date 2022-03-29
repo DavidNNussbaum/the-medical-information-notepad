@@ -1,0 +1,10 @@
+<h1>Comment:<%= @comment.description %></h1> 
+<div class="ft-sz-25">
+    <p><%= @comment_path.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p>
+    <% end %>
+
+    <%=  link_to "Edit", edit_comment_path(@comment) %>
+
+    <%=  button_to "Remove This Comment", commentt_path(@comment), method: :delete %>
+</div>  
+    
