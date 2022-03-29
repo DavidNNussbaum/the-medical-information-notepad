@@ -1,0 +1,12 @@
+<h1>Immunization:<%= @user.immunization %></h1> 
+<div class="ft-sz-25">
+    <p>Immunization Name: <%= @immunization.name %></p>
+    <p>Immunization Date: <%= @immunization.date %></p>
+    <p><%= immunization.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p>
+    <% end %>
+
+    <%=  link_to "Edit", edit_immunization_path(@immunization) %>
+
+    <%=  button_to "Remove This Immunization", immunization_path(@immunization), method: :delete %>
+</div>  
+    
