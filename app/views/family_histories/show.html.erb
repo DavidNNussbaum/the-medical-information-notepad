@@ -1,0 +1,17 @@
+<h1>Family Histories:<%= @user.family_history %></h1> 
+<div class="ft-sz-25">
+    <p>Mother: <%= @user.mother %></p>
+    <p>Father: <%= @user.father %></p>
+    <p>Sister: <%= @user.sister %></p>
+    <p>Brother: <%= @user.brother %></p>
+    
+    <p><%= family_history.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p>
+    <% end %>
+
+    <%=  link_to "Edit", edit_family_history_path(@family_history) %>
+
+    <%=  button_to "Remove This Family History", family_history_path(@family_history), method: :delete %>
+</div>  
+
+
+ 
