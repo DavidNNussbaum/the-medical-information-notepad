@@ -1,0 +1,17 @@
+<h1>Name:<%= @user.name %></h1> 
+<div class="ft-sz-25">
+    <p>Medication Name: <%= @medication.name %></p>
+    <p>Medication Strength: <%= @medication.strength %></p>
+    <p>Medication Route: <%= @medication.route %></p>
+    <p>Medication Frequency: <%= @medication.frequency %></p>
+     
+    <p><%= Medication.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p>
+    <% end %>
+
+    <%=  link_to "Edit", edit_medication_path(@medication) %>
+
+    <%=  button_to "Remove This Medication", medication_path(@medication), method: :delete %>
+</div>  
+    
+
+     
