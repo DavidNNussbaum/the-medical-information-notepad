@@ -1,0 +1,13 @@
+<h1>Name:<%= @user.name %></h1> 
+<div class="ft-sz-25">
+    <p>Name of Surgery: <%= @surgery.name.address %></p>
+    <p>Date Of Surgery: <%= @surgery.date.strftime("%m/%d/%Y") %></p> 
+    
+    <p><%= surgery.updated_at.strftime("Last updated %m/%d/%Y, at %l:%M %p") %></p>
+    <% end %>
+
+    <%=  link_to "Edit", edit_surgery_path(@patient) %>
+
+    <%=  button_to "Remove This Surgery", surgery_path(@surgery), method: :delete %>
+</div>  
+    
